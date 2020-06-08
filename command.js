@@ -125,7 +125,7 @@ function insertFileHeaderGuard() {
             currentPathName = currentPathName.substr(1);
         }
         console.log("pathname: '" + currentPathName + "'");
-        guardName = currentPathName.replace(/\./g, "_").replace(new RegExp(separator, "g"), "__").toUpperCase();
+        guardName = currentPathName.replace(/[^0-9A-Za-z_]/g, "_").replace(new RegExp(separator, "g"), "__").toUpperCase();
     } else {
         guardName = new GUID().newGUID().toUpperCase();
     }
